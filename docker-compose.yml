@@ -1,0 +1,32 @@
+services: 
+  grafana:
+    image: grafana/grafana:latest
+    ports: 
+      - '3000:3000'
+    networks: 
+      - loki-net
+
+  loki:
+    image: grafana/loki:latest
+    ports: 
+      - '3100:3100'
+    networks: 
+      - loki-net
+      
+  database: 
+    image: db_hakaton
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    networks: 
+      - loki-net
+    depends_on:
+      - grafana
+      - loki
+    
+networks:
+  loki-net:
+    driver: bridge
+
+
