@@ -2,8 +2,8 @@ from environs import Env
 
 from typing import Any
 
-class Env_conf:
 
+class EnvConfig:
     @staticmethod
     def read():
         env = Env()

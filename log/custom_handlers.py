@@ -1,7 +1,7 @@
 import logging
-import logging_loki
-
 from typing import Optional
+
+import logging_loki
 
 
 class LokiLogginHandler(logging_loki.LokiHandler):
