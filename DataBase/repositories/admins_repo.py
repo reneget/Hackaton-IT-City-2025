@@ -9,13 +9,14 @@ class AdminRepo:
     def __init__(self, db: Session):
         self.db = db
 
-    def add_admin(self, user_id: int) -> None:
+    def add_admin(self, user_id: int) -> Type[Admin] | None:
         user = self.db.query(User).filter(User.user_id == user_id).first()
         admin = self.db.query(Admin).filter(Admin.user_id == user_id).first()
         if user and not admin:
             self.db.add(Admin(user_id=user_id))
             self.db.commit()
             self.db.refresh(user)
+            return admin
 
     def is_admin(self, user_id: int) -> bool:
         return self.db.query(Admin).filter(Admin.user_id == user_id).first() is not None
@@ -23,8 +24,9 @@ class AdminRepo:
     def get_all_admins(self) -> list[Type[Admin]]:
         return self.db.query(Admin).all()
 
-    def delete_admin(self, user_id: int) -> None:
+    def delete_admin(self, user_id: int) -> Type[Admin] | None:
         admin = self.db.query(Admin).filter(Admin.user_id == user_id).first()
         if admin:
             self.db.delete(admin)
             self.db.commit()
+        return admin
