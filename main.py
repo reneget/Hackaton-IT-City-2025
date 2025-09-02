@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-import logging 
+import logging
 
 from log import config
 
@@ -14,7 +14,5 @@ app = FastAPI()
 main_log.info('FastAPI object initialized')
 
 main_log.info('Connecting routers')
-#app.include_router()
+# app.include_router()
 main_log.info('Routers are connected')
-
-

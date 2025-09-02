@@ -1,10 +1,9 @@
-from DataBase.models import admins_model
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
+from configurations import main_config
 
-DATABASE_URL = "postgresql://username:password@localhost:5432/mydatabase"
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(main_config.db.db_url, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

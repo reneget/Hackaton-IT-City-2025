@@ -9,11 +9,12 @@ class UserRepo:
     def __init__(self, db: Session):
         self.db = db
 
-    def create_user(self, login: str, password: str):
+    def create_user(self, login: str, password: str) -> User:
         user = User(login=login, password=password)
         self.db.add(user)
         self.db.commit()
         self.db.refresh(user)
+        return user
 
     def get_user_by_id(self, user_id: int) -> Optional[User]:
         return self.db.query(User).filter(User.id == user_id).first()
@@ -25,20 +26,20 @@ class UserRepo:
                     user_id: int,
                     name: Optional[str] = None,
                     email: Optional[str] = None,
-                    age: Optional[int] = None,
+                    moder: Optional[int] = None,
                     login: Optional[str] = None,
                     password: Optional[str] = None,
                     is_active: Optional[bool] = None,
                     is_blocked: Optional[bool] = None
-                    ) -> None:
+                    ) -> Type[User] | None:
         user = self.get_user_by_id(user_id)
         if user:
             if name:
                 user.name = name
             if email:
                 user.email = email
-            if age:
-                user.age = age
+            if moder:
+                user.moder = moder
             if login:
                 user.login = login
             if password:
@@ -49,9 +50,11 @@ class UserRepo:
                 user.is_blocked = is_blocked
             self.db.commit()
             self.db.refresh(user)
+        return user
 
-    def delete_user(self, user_id: int) -> None:
+    def delete_user(self, user_id: int) -> Type[User] | None:
         user = self.get_user_by_id(user_id)
         if user:
             self.db.delete(user)
             self.db.commit()
+        return user
