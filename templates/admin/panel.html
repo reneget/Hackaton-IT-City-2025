@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Админ панель{% endblock %}
+{% block body %}
+<div style="display:flex;min-height:100vh">
+  <aside class="sidebar">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#00d4ff,#0077ff)"></div>
+      <strong style="letter-spacing:.3px">Admin</strong>
+    </div>
+    <nav style="display:grid;gap:6px">
+      <a href="/admin" class="active">Панель</a>
+      <a href="/admin/users">Пользователи</a>
+      <a href="/admin/profile">Профиль</a>
+      <a href="/admin/settings">Настройки</a>
+    </nav>
+    <div style="margin-top:auto"><a href="/login" style="color:#9fc5d9;text-decoration:none;font-size:14px">Выйти</a></div>
+  </aside>
+  <div style="flex:1;display:flex;flex-direction:column">
+    <header class="header"><h1 style="margin:0;font-size:18px">Панель управления</h1></header>
+    <main class="container" style="display:grid;gap:16px">
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+        <div class="card"><div style="color:#64748b;font-size:12px">Пользователи</div><div style="font-size:24px;font-weight:700">1,248</div></div>
+        <div class="card"><div style="color:#64748b;font-size:12px">Заявки</div><div style="font-size:24px;font-weight:700">86</div></div>
+        <div class="card"><div style="color:#64748b;font-size:12px">Ошибки</div><div style="font-size:24px;font-weight:700;color:#ef4444">5</div></div>
+        <div class="card"><div style="color:#64748b;font-size:12px">Аптайм</div><div style="font-size:24px;font-weight:700;color:#16a34a">99.9%</div></div>
+      </div>
+      <div class="card" style="padding:0;margin-top:16px">
+        <div style="padding:16px;border-bottom:1px solid #e5e7eb;font-weight:600">Последние события</div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Дата</th><th>Событие</th><th>Статус</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2025-09-02 12:00</td><td>Импорт данных</td><td>Успех</td></tr>
+              <tr><td>2025-09-02 11:20</td><td>Авторизация администратора</td><td>Успех</td></tr>
+              <tr><td>2025-09-02 10:05</td><td>Создание пользователя</td><td style="color:#f59e0b">В процессе</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}
+

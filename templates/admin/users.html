@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Пользователи{% endblock %}
+{% block body %}
+<div style="display:flex;min-height:100vh">
+  <aside class="sidebar">
+    <nav style="display:grid;gap:6px">
+      <a href="/admin">Панель</a>
+      <a href="/admin/users" class="active">Пользователи</a>
+      <a href="/admin/profile">Профиль</a>
+      <a href="/admin/settings">Настройки</a>
+    </nav>
+  </aside>
+  <main class="container" style="flex:1">
+    <div class="card">
+      <h2 style="margin-top:0">Пользователи</h2>
+      <div style="margin-bottom:12px;display:flex;gap:8px">
+        <input placeholder="Поиск пользователя..." style="border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;outline:none" />
+        <button style="padding:8px 12px;border-radius:8px;border:1px solid #0ea5e9;background:#0ea5e9;color:#fff;cursor:pointer">Добавить</button>
+      </div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Имя</th><th>E‑mail</th><th>Роль</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Иван Иванов</td><td>ivan@example.com</td><td>Администратор</td></tr>
+            <tr><td>2</td><td>Мария Петрова</td><td>maria@example.com</td><td>Редактор</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}
+

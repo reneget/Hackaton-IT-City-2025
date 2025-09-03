@@ -1,4 +1,16 @@
 services: 
+  app:
+    build:
+      context: .
+    environment:
+      - LOKI_URL=http://loki:3100
+      - DATABASE_URL=${DATABASE_URL:-sqlite:///./app.db}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - loki
+    networks:
+      - loki-net
   grafana:
     image: grafana/grafana:latest
     ports: 

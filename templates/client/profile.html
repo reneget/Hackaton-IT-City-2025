@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Профиль{% endblock %}
+{% block body %}
+<main class="container">
+  <div class="card">
+    <h1>Профиль</h1>
+    <div style="display:grid;gap:12px;max-width:480px">
+      <label>Имя<input value="{{ user.name }}" style="width:100%;padding:8px" /></label>
+      <label>Email<input value="{{ user.email }}" style="width:100%;padding:8px" /></label>
+      <label>Телефон<input value="{{ user.phone }}" style="width:100%;padding:8px" /></label>
+      <button style="padding:8px 12px;width:fit-content">Сохранить</button>
+    </div>
+  </div>
+{% endblock %}
+

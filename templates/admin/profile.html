@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Профиль (админ){% endblock %}
+{% block body %}
+<main class="container">
+  <div class="card">
+    <h2 style="margin-top:0">Профиль</h2>
+    <div style="display:grid;gap:12px;max-width:520px">
+      <label style="display:grid;gap:6px"><span style="color:#475569;font-size:13px">Имя</span><input placeholder="Иван Иванов" style="border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;outline:none" /></label>
+      <label style="display:grid;gap:6px"><span style="color:#475569;font-size:13px">E‑mail</span><input placeholder="user@example.com" style="border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;outline:none" /></label>
+      <label style="display:grid;gap:6px"><span style="color:#475569;font-size:13px">Телефон</span><input placeholder="+7 (900) 000-00-00" style="border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;outline:none" /></label>
+      <div><button style="padding:10px 14px;border-radius:8px;border:1px solid #0ea5e9;background:#0ea5e9;color:#fff;cursor:pointer">Сохранить</button></div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+

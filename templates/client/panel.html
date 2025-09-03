@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Личный кабинет{% endblock %}
+{% block body %}
+<div style="display:flex;min-height:100vh">
+  <aside class="sidebar">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#00d4ff,#0077ff)"></div>
+      <strong style="letter-spacing:.3px">Client</strong>
+    </div>
+    <nav style="display:grid;gap:6px">
+      <a href="/client/panel" class="active">Панель</a>
+      <a href="/client/orders">Заказы</a>
+      <a href="/client/profile">Профиль</a>
+      <a href="/client/settings">Настройки</a>
+    </nav>
+    <div style="margin-top:auto"><a href="/client/login" style="color:#9fc5d9;text-decoration:none;font-size:14px">Выйти</a></div>
+  </aside>
+  <div style="flex:1;display:flex;flex-direction:column">
+    <header class="header"><h1 style="margin:0;font-size:18px">Личный кабинет</h1></header>
+    <main class="container">
+      <div class="card">
+        <h1>Пользовательская панель</h1>
+        <p>Добро пожаловать! Здесь вы найдете сводку ваших заказов и уведомлений.</p>
+        <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+          <section style="border:1px solid #eee;border-radius:8px;padding:16px">
+            <h3>Последние заказы</h3>
+            <ul>
+              <li>#1024 — в обработке</li>
+              <li>#1023 — доставлен</li>
+              <li>#1022 — отменен</li>
+            </ul>
+          </section>
+          <section style="border:1px solid #eee;border-radius:8px;padding:16px">
+            <h3>Уведомления</h3>
+            <ul>
+              <li>Скидка 10% на следующую покупку</li>
+              <li>Обновите пароль для безопасности</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}
+

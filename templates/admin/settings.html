@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Настройки (админ){% endblock %}
+{% block body %}
+<main class="container">
+  <div class="card">
+    <h2 style="margin-top:0">Настройки</h2>
+    <section style="display:grid;gap:10px">
+      <h3 style="margin:0;font-size:16px">Общие</h3>
+      <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" /> Включить уведомления</label>
+      <label style="display:grid;gap:6px"><span style="color:#475569;font-size:13px">Язык интерфейса</span><select style="border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;outline:none"><option>Русский</option><option>English</option></select></label>
+    </section>
+    <section style="display:grid;gap:10px">
+      <h3 style="margin:0;font-size:16px">Безопасность</h3>
+      <label style="display:grid;gap:6px"><span style="color:#475569;font-size:13px">Смена пароля</span><input type="password" placeholder="Новый пароль" style="border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;outline:none" /></label>
+      <button style="padding:10px 14px;border-radius:8px;border:1px solid #0ea5e9;background:#0ea5e9;color:#fff;cursor:pointer;width:fit-content">Сохранить</button>
+    </section>
+  </div>
+</main>
+{% endblock %}
+

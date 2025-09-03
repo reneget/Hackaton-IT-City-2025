@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Настройки{% endblock %}
+{% block body %}
+<main class="container">
+  <div class="card">
+    <h1>Настройки</h1>
+    <div style="display:grid;gap:12px;max-width:420px">
+      <label>Тема
+        <select style="width:100%;padding:8px">
+          <option value="light" {% if theme == 'light' %}selected{% endif %}>Светлая</option>
+          <option value="dark" {% if theme == 'dark' %}selected{% endif %}>Тёмная</option>
+        </select>
+      </label>
+      <label>Язык
+        <select style="width:100%;padding:8px">
+          <option value="ru" {% if language == 'ru' %}selected{% endif %}>Русский</option>
+          <option value="en" {% if language == 'en' %}selected{% endif %}>English</option>
+        </select>
+      </label>
+      <div>Текущие: тема — {{ theme }}, язык — {{ language }}</div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+

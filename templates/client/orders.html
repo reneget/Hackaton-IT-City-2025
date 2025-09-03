@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Мои заказы{% endblock %}
+{% block body %}
+<div style="display:flex;min-height:100vh">
+  <aside class="sidebar">
+    <nav style="display:grid;gap:6px">
+      <a href="/client/panel">Панель</a>
+      <a href="/client/orders" class="active">Заказы</a>
+      <a href="/client/profile">Профиль</a>
+      <a href="/client/settings">Настройки</a>
+    </nav>
+  </aside>
+  <main class="container" style="flex:1">
+    <div class="card">
+      <h1>Мои заказы</h1>
+      <table>
+        <thead>
+          <tr><th>№</th><th>Дата</th><th>Статус</th><th>Сумма</th></tr>
+        </thead>
+        <tbody>
+          {% for o in orders %}
+          <tr>
+            <td>#{{ o.id }}</td>
+            <td>{{ o.date }}</td>
+            <td>{{ o.status }}</td>
+            <td>{{ '{:,.0f}'.format(o.total).replace(',', ' ') }} ₽</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+{% endblock %}
+
